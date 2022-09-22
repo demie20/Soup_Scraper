@@ -2,8 +2,7 @@ from urllib.request import urlopen as uReq
 import bs4
 from bs4 import BeautifulSoup as soup
 
-
-my_url = 'https://www.franklywearing.com/creator-products?product_id=103'
+my_url = "https://www.franklywearing.com/creator-products?product_id=103"
 
 uClient = uReq(my_url)
 
@@ -30,12 +29,10 @@ for i in price_soup:
 
     prices.append(i.text.strip())
 
-
 print(names)
 print(prices)
 
-
-f = open('hello.csv', 'w', encoding='utf-8')
+f = open("hello.csv", "w", encoding="utf-8")
 for i in range(len(names)):
-    f.write(names[i].replace(",", "|") + "," + prices[i].replace(",", "|") + '\n')
+    f.write(names[i].replace(",", "|") + "," + prices[i].replace(",", "|") + "\n")
 f.close()
